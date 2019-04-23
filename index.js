@@ -5,7 +5,10 @@ var mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const path = require('path')
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/portal', { useNewUrlParser: true, useCreateIndex: true }, ()=>{
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/portal', { useNewUrlParser: true, useCreateIndex: true }, ()=>{
+//   console.log('Connected to the database');
+// })
+mongoose.connect('mongodb+srv://portal_user:12345@portal-zmlty.mongodb.net/portal?retryWrites=true', { useNewUrlParser: true, useCreateIndex: true }, ()=>{
   console.log('Connected to the database');
 })
 
@@ -120,5 +123,4 @@ if(process.env.NODE_ENV === 'production'){
 const port = process.env.PORT || 5000
 app.listen(port, _=>{
   console.log(`Server is running on port ${port}`)
-  console.log(path.join(__dirname, 'student-portal', 'build', 'index.html'));
 })
