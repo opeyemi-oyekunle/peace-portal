@@ -63,7 +63,7 @@ app.get('/api/verifyAccount/:email/:token', (req, res)=>{
     if (err) {
       console.log('There was an error');
     }else {
-      res.json(update)
+      res.send("Account verified")
     }
   })
 })
